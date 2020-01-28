@@ -3,9 +3,11 @@ A fullstack Java application and RESTful API that serves to store favorite songs
 
 ## Dependencies
 * Spring Data JPA
-  * To persist data in SQL stores with data persistence API using Spring Data and Hibernate
+  * To persist data in SQL stores with data persistence API using Spring Data and Hibernate.
 * Spring Security
-  * Highly customizable authentication and access-control framework for Spring applications
+  * Highly customizable authentication and access-control framework for Spring applications.
+* Spring Boot DevTools
+  * Provides fast application restarts, LiveReload, and configuration for enhanced development experience.
 
 
 ## Key-Words and Terms Used in the Building of MusicCentral
