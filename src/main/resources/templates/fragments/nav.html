@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nav Fragment</title>
+</head>
+<body>
+    <section th:fragment="nav">
+        <!-- if person is logged in... -->
+        <nav th:if="${username}">
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+            <h1>Hello, [[${username}]]!</h1>
+        </nav>
+        <!-- if person is new or needs to login -->
+        <nav th:unless="${username}">
+            <a href="/">home</a>
+            <a href="/login">login</a>
+            <a href="/signup">signup</a>
+            <h1>Welcome to Music Central!</h1>
+            <p>Please create an account or login</p>
+        </nav>
+    </section>
+</body>
+</html>
