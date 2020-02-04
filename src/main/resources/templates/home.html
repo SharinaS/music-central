@@ -6,8 +6,15 @@
     <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
+    <div th:replace="fragments/nav :: nav"></div>
     <div class="container">
-        <div th:replace="fragments/nav :: nav"></div>
+        <!-- if person logged in -->
+        <!-- probably nice if the person's artists appeared here.
+        The option to go directly to the songs could appear in the nav bar -->
+
+        <!-- if person not logged in or new to the app -->
+        <!-- Maybe the signup page appears, and there's a nice description of the app with screenshots and such. -->
+
     </div>
 </body>
 </html>
