@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+<body>
+    <div th:replace="fragments/nav :: nav"></div>
+    <div class="container">
+        <div id="artist-detail">
+            <h2 th:text="${artist.artistName}"></h2>
+        </div>
+    </div>
+
+</body>
+</html>
