@@ -3,25 +3,24 @@ package com.sharinastubbs.musiccentral.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    long id;
 
     String username;
     String password;
     String firstname;
 
     //== DB Setup ==
-    //TODO: Each user will have many albums, and the many albums will have many songs (as in, each album will have many songs)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    List<Artist> artists;
 
     //== Constructors ==
     public ApplicationUser() {}

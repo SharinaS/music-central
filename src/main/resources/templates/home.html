@@ -7,14 +7,14 @@
 </head>
 <body>
     <div th:replace="fragments/nav :: nav"></div>
-    <div class="container">
-        <!-- if person logged in -->
-        <!-- probably nice if the person's artists appeared here.
-        The option to go directly to the songs could appear in the nav bar -->
+    <!-- if person logged in -->
+    <div class="container" th:if="${username}">
+        <!-- something goes here, such as favorites of favorites -->
 
-        <!-- if person not logged in or new to the app -->
-        <!-- Maybe the signup page appears, and there's a nice description of the app with screenshots and such. -->
-
+    </div>
+    <!-- if person not logged in or new to the app -->
+    <div class="container" th:unless="${username}">
+    <!-- Maybe the signup page appears, and there's a nice description of the app with screenshots and such. -->
     </div>
 </body>
 </html>
