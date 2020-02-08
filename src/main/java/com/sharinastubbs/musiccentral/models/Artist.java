@@ -38,7 +38,7 @@ public class Artist {
     // ToString
     @Override
     public String toString() {
-        return String.format("The artist is %s", this.artistName);
+        return String.format("The artist is %s and the url to the image is %s", this.artistName, this.artistImageURL);
     }
 
 

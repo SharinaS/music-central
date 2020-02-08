@@ -66,4 +66,13 @@ public class ApplicationUser implements UserDetails {
     public String getUsername() {
         return this.username;
     }
+
+    // Other Getters
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public List<Artist> getArtists() {
+        return artists;
+    }
 }
