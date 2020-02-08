@@ -6,6 +6,35 @@
     <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
-
+    <div th:replace="fragments/nav :: nav"></div>
+    <div class="container">
+        <!-- Display Artists -->
+        <div class="row">
+            <div class="col-8">
+                <h2 class="page-title">Favorite Artists</h2>
+                <div class="row">
+                    <div id="artist-group" th:each="artist : ${artistsList}">
+                        <p th:text="${artist.artistName}"></p>
+                        <img th:src="${artist.artistImageURL}" class="image" />
+                    </div>
+                </div>
+            </div>
+            <!-- Add Artist -->
+            <div class="col">
+                <h2 class="page-title">Add an Artist</h2>
+                <form action="/artists" method="POST">
+                    <div class="form-group">
+                        <label for="input-artist-title">Name of Artist</label>
+                        <input type="text" class="form-control" placeholder="Enter Artist Name" name="artistName" id="input-artist-title">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-image-url">Link to Artist Image</label>
+                        <input type="text" class="form-control" placeholder="http://placekitten.com/200/300" name="artistImageURL" id="input-image-url">
+                    </div>
+                    <input type="submit" value="Add Artist">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
