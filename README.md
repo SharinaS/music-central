@@ -33,9 +33,11 @@ Please see file in repo, called USERSTORIES.md
 # Domain Modeling
 Pending.
 
-# Stretch Goals 
-These are taken directly from the instructions provided at various stages in the app, Codefellowship, which was a learning project during 401 Java at Code Fellows.
+# Domain-Entity-Relationships
+Pending
 
-* Add a notifications system to CodeFellowship. Display a notification to users when people comment on their posts.
-* Using WebSockets, make that notifications system show updates in real time, not just when the page refreshes.
-* Using WebSockets, implement a messaging feature on CodeFellowship.
+# Stretch Goals to Consider
+* Set up a many to many relationship between users so a user can follow other users and see what music they like / other users can follow signed in user.
+  * Can view and be notified of addition of artists and/or songs, and be exposed to different genres. 
+* Display a notification to user when other users add an artist. Consider WebSockets or AWS 
+  * Using WebSockets, make notifications system show updates in real time, not just when the page refreshes.
