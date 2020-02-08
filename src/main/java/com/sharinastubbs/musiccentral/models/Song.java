@@ -45,5 +45,13 @@ public class Song {
     public String getSongGenre() {
         return songGenre;
     }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "artist=" + artist +
+                ", songTitle='" + songTitle + '\'' +
+                '}';
+    }
 }
 

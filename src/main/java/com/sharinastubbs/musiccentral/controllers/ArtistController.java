@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -25,7 +26,7 @@ public class ArtistController {
     ArtistRepository artistRepository;
 
     @GetMapping("/artists")
-    public String showArtists(Principal p, Model m){
+    public String showArtistsThatHaveBeenSavedInDatabase(Principal p, Model m){
         // p is the logged in user, so get user's name if logged in.
         if (p != null) {
             m.addAttribute("username", p.getName());
@@ -38,8 +39,9 @@ public class ArtistController {
         return "artists";
     }
 
+
     @PostMapping("/artists")
-    public RedirectView addArtist(Principal p, Model m, String artistName, String artistImageURL){
+    public RedirectView addArtistToDatabase(Principal p, Model m, String artistName, String artistImageURL){
         if (p != null) {
             m.addAttribute("username", p.getName());
         }
@@ -52,4 +54,19 @@ public class ArtistController {
         artistRepository.save(artist);
         return new RedirectView("/artists");
     }
+
+
+    @GetMapping("/artists/{id}")
+    public String getDetailViewOfAnArtistAndSongs (@PathVariable long id, Principal p, Model m) {
+        if (p != null) {
+            m.addAttribute("username", p.getName());
+        }
+        // get the id of the artist via the Model, and head to a view that shows that particular artist's id,
+        // called songs
+        m.addAttribute("artist", artistRepository.getOne(id));
+        return "songs";
+    }
+
+    //TODO: Fix error page that occurs when navigating from artists/id to artists
+    // tab via the nav bar (shows error page and url of http://localhost:8080/artists/artists)
 }

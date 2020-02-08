@@ -16,6 +16,7 @@
                     <div id="artist-group" th:each="artist : ${artistsList}">
                         <p th:text="${artist.artistName}"></p>
                         <img th:src="${artist.artistImageURL}" class="image" />
+                        <h3><a th:href="${'/artists/' + artist.id}">Artist Details and Songs</a></h3>
                     </div>
                 </div>
             </div>

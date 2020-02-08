@@ -40,6 +40,14 @@ public class Artist {
         return artistImageURL;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
     // ToString
     @Override
     public String toString() {
