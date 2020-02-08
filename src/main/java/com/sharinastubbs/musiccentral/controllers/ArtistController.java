@@ -14,7 +14,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.List;
 
-// a logged in user can see their favorite artists and be able to quickly add in another favorite artist.
+// a logged in user can see their favorite artists, pulled from the database,
+// and add another favorite artist to the database.
 
 @Controller
 public class ArtistController {
