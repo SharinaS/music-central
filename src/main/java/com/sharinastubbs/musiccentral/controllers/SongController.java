@@ -1,43 +1,44 @@
 package com.sharinastubbs.musiccentral.controllers;
 
-import com.sharinastubbs.musiccentral.models.ApplicationUser;
-import com.sharinastubbs.musiccentral.models.ApplicationUserRepository;
-import com.sharinastubbs.musiccentral.models.ArtistRepository;
-import com.sharinastubbs.musiccentral.models.SongRespository;
+import com.sharinastubbs.musiccentral.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 
 @Controller
 public class SongController {
     @Autowired
-    ApplicationUserRepository applicationUserRepository;
-    @Autowired
     ArtistRepository artistRepository;
     @Autowired
     SongRespository songRespository;
 
-//    @GetMapping("/artists")
-//    public String getSongsForEachArtist (@PathVariable long id, Principal p, Model m) {
-//        if (p != null) {
-//            m.addAttribute("username", p.getName());
-//        }
-//        //TODO: I'm at the artists page. I click on an artist, it has to access the id of the artist, pass that over
-//        // via the model so the controller knows which id to use to then use that id to access the database, to then
-//        // pull the artist info from the database. Then, I can create a list of songs associated with that artist id,
-//        // to then display on the songs page.
-//
-////        // get the user and make it available to the model
-////        ApplicationUser user = applicationUserRepository.getOne(id);
-////        m.addAttribute("user", user);
-//
-//        // get the artist, which I have access to from the Model, because of what is in Thymeleaf over in the HTML.
-////        m.addAttribute("artist", artistRepository.getOne(id));
-//        // collect a list of songs of that artist.
-//        return "home";
-//    }
+
+    @GetMapping("/artists/{id}")
+    public String getDetailViewOfAnArtistAndSongs (@PathVariable long id, Principal p, Model m) {
+        if (p != null) {
+            m.addAttribute("username", p.getName());
+        }
+        // get the id of the artist via the Model to put into URL, and head to the view called songs,
+        m.addAttribute("artist", artistRepository.getOne(id));
+        return "songs";
+    }
+
+    @PostMapping("artists/{id}")
+    public RedirectView addSongToDatabase(@PathVariable long id,
+                                          String songTitle,
+                                          String linkToSong,
+                                          String imgSongURL,
+                                          String songGenre) {
+        // find artist in the db and grab their id, so song will belong to that artist.
+        Artist artist = artistRepository.getOne(id);
+        Song newSong = new Song (songTitle, linkToSong, imgSongURL, songGenre, artist);
+        songRespository.save(newSong);
+        return new RedirectView("/artists/" + id);
+    }
 }

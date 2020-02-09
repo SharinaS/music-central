@@ -13,10 +13,10 @@
             <div class="col-8">
                 <h2 class="page-title">Favorite Artists</h2>
                 <div class="row">
-                    <div id="artist-group" th:each="artist : ${artistsList}">
-                        <p th:text="${artist.artistName}"></p>
+                    <div class="each-artist" th:each="artist : ${artistsList}">
+                        <h3 th:text="${artist.artistName}"></h3>
                         <img th:src="${artist.artistImageURL}" class="image" />
-                        <h3><a th:href="${'/artists/' + artist.id}">Artist Details and Songs</a></h3>
+                        <p class="link"><a th:href="${'/artists/' + artist.id}">Songs</a></p>
                     </div>
                 </div>
             </div>
