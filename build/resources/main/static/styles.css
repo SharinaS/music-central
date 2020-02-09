@@ -1,11 +1,46 @@
-
 .page-title {
-    margin: 1em, 0em, 1.5em, 0em;
+    margin: 2em, 0em, 1.5em, 0em;
 }
 
 .image {
     width: 200px;
     height: 200px;
     border: 1px solid #ccc;
+    border-radius: 12%;
+}
+
+.each-song, .each-artist {
+    margin: 1em;
+    padding: 1em;
+    border-radius: 12%;
+    text-align: center;
+}
+
+.each-song {
+    border: 1px solid grey;
+}
+
+/*
+.link:link, .link:visited {
+    background-color: #f44336;
+    padding: 0.5em, 0.75em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link:hover, .link:active {
+  background-color: grey;
+  color: white;
+}
+*/
+
+.link:link, .link:visited {
+    padding: 0.5em, 0.75em;
+    text-decoration: none;
+}
+
+.link:hover, .link:active {
+    background-color: silver;
     border-radius: 12%;
 }

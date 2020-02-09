@@ -31,10 +31,10 @@ public class ArtistController {
         if (p != null) {
             m.addAttribute("username", p.getName());
         }
-        // get the name of the user via the Java Persistence API (JPA), put user's artists into a list,
-        // and save list so the model of MVC can access it.
+        // get the name of the user via the Java Persistence API (JPA), and put user's artists into a list
         ApplicationUser user = applicationUserRepository.findByUsername(p.getName());
         List<Artist> listOfArtistsUserLikes = user.getArtists();
+        // add the list to the model so the view can access it
         m.addAttribute("artistsList", listOfArtistsUserLikes);
         return "artists";
     }
@@ -56,16 +56,7 @@ public class ArtistController {
     }
 
 
-    @GetMapping("/artists/{id}")
-    public String getDetailViewOfAnArtistAndSongs (@PathVariable long id, Principal p, Model m) {
-        if (p != null) {
-            m.addAttribute("username", p.getName());
-        }
-        // get the id of the artist via the Model, and head to a view that shows that particular artist's id,
-        // called songs
-        m.addAttribute("artist", artistRepository.getOne(id));
-        return "songs";
-    }
+
 
     //TODO: Fix error page that occurs when navigating from artists/id to artists
     // tab via the nav bar (shows error page and url of http://localhost:8080/artists/artists)

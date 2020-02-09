@@ -8,10 +8,59 @@
 <body>
     <div th:replace="fragments/nav :: nav"></div>
     <div class="container">
-        <div id="artist-detail">
-            <h2 th:text="${artist.artistName}"></h2>
-        </div>
-    </div>
-
+        <div class="row">
+            <!-- show all the songs for the chosen artist -->
+            <div class="col-8">
+                <h2 th:text="${artist.artistName}"></h2>
+                <div class="row">
+                    <div class="each-song" th:each="song : ${artist.songs}">
+                        <h3 th:text="${song.songTitle}"></h3>
+                        <p th:text="${song.songGenre}"></p>
+                        <img th:src="${song.imgSongURL}" class="image" />
+                        <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
+                    </div>
+                </div>
+            </div> <!-- /col-8 -->
+            <!-- add songs to database-->
+            <div class="col">
+                <h2 class="page-title">Add a Song by [[${artist.artistName}]]</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="input-song-title">Song Title</label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter Song Title"
+                               name="songTitle"
+                               id="input-song-title">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-link-to-song">Add Link to the Song</label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter a link to song"
+                               name="linkToSong"
+                               id="input-link-to-song">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-image-url">Add Link to Song Image</label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter a link to an image"
+                               name="imgSongURL"
+                               id="input-image-url">
+                    </div>
+                    <div class="form-group">
+                        <label for="song-genre">Song Genre</label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter genre"
+                               name="songGenre"
+                               id="song-genre">
+                    </div>
+                    <input type="submit" value="Add Song">
+                </form>
+            </div>
+        </div> <!-- /row -->
+    </div> <!-- /container -->
 </body>
 </html>
