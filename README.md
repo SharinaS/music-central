@@ -6,8 +6,10 @@ Sharina Stubbs
 ### About
 Java software developer and life-long learner. Works to write clean and intelligent code, maintain a solid sense of humor, a learning mindset and an ever-improving emotional IQ, not necessarily in that order.
 
+Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
+
 # Dependencies
-(descriptions taken directly from the Spring Initializer, at `start.spring.io)
+(descriptions are from the Spring Initializer, at `start.spring.io`)
 * Spring Data JPA
   * To persist data in SQL stores with data persistence API using Spring Data and Hibernate.
 * Spring Security
@@ -36,10 +38,13 @@ Pending.
 # Database
 PostgreSQL, a free and open-source relational database management system, is used to store data about the user, the artists and the songs.
 
-## Domain-Entity-Relationships
-Pending
+## Database-Entity-Relationships
+![Handrawn diagram of relationships](assets/db-entity-relationships.jpg)
 
-# How to Run the  Application - localhost
+## Schemas
+![Screenshot of schemas](assets/musicCentralTables.png)
+
+# How to Run the  Application via a Local Server
 * Clone MusicCentral from my Repo
 * If you are a Windows user, open the file called application.properties (`music-central > src > main > resources > application.properties`) and add your PostgreSQL username and password to the environmental variables. (If you're a MacOS user, there is no need).
 * Make sure you have an account with PostgreSQL and that you have PSQL installed.
@@ -50,6 +55,7 @@ Pending
 # Lessons Learned in this App
 * It is way to easy to overlook adding in a very necessary annotation, such as @Controller
 * Scroll down to read every error message; the one near the bottom might be the very one you're looking for.
+* Forms are the devil - particularly when you think it's a good idea to copy paste part of the form, and you forget to update the `name=`.
 
 # Stretch Goals to Consider
 * Set up a many to many relationship between users so a user can follow other users and see what music they like / other users can follow signed in user.
