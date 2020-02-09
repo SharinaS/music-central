@@ -1,9 +1,6 @@
 package com.sharinastubbs.musiccentral.controllers;
 
-import com.sharinastubbs.musiccentral.models.ApplicationUser;
-import com.sharinastubbs.musiccentral.models.ApplicationUserRepository;
-import com.sharinastubbs.musiccentral.models.Artist;
-import com.sharinastubbs.musiccentral.models.ArtistRepository;
+import com.sharinastubbs.musiccentral.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +21,8 @@ public class ArtistController {
     ApplicationUserRepository applicationUserRepository;
     @Autowired
     ArtistRepository artistRepository;
+    @Autowired
+    SongRespository songRespository;
 
     @GetMapping("/artists")
     public String showArtistsThatHaveBeenSavedInDatabase(Principal p, Model m){
@@ -55,9 +54,21 @@ public class ArtistController {
         return new RedirectView("/artists");
     }
 
+    @PostMapping("/artist/delete")
+    public RedirectView deleteArtistFromDatabaseAndAssociatedSongs (Long artistId) {
+        // set a variable as the artist id and get a list of all the artists songs
+        Artist artist = artistRepository.getOne(artistId);
+        List<Song> listOfArtistSongs = artist.getSongs();
+        // if the list is full, delete the songs from the song repo by their id, otherwise, just delete the artist.
+        if(!listOfArtistSongs.isEmpty()) {
+            for (Song song : listOfArtistSongs) {
+                Long songId = song.getId();
+                songRespository.deleteById(songId);
+            }
+        }
+        artistRepository.deleteById(artistId);
+        return new RedirectView("/artists");
+    }
 
-
-
-    //TODO: Fix error page that occurs when navigating from artists/id to artists
-    // tab via the nav bar (shows error page and url of http://localhost:8080/artists/artists)
+    // TODO: add in JS alert - are you sure you want to delete artist?
 }
