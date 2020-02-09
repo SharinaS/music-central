@@ -16,8 +16,14 @@
                     <div class="each-song" th:each="song : ${artist.songs}">
                         <h3 th:text="${song.songTitle}"></h3>
                         <p th:text="${song.songGenre}"></p>
-                        <img th:src="${song.imgSongURL}" class="image" />
+                        <a th:href="${song.linkToSong}" target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
                         <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
+                        <!-- delete song -->
+                        <form method="POST" action="/song/delete">
+                            <input type="hidden" th:value="${song.id}" name="songId">
+                            <input type="hidden" th:value="${artist.id}" name="artistId">
+                            <input type="submit" value="Delete Song">
+                        </form>
                     </div>
                 </div>
             </div> <!-- /col-8 -->
@@ -34,18 +40,18 @@
                                id="input-song-title">
                     </div>
                     <div class="form-group">
-                        <label for="input-link-to-song">Add Link to the Song</label>
+                        <label for="input-link-to-song">Link to the Song</label>
                         <input type="text"
                                class="form-control"
-                               placeholder="Enter a link to song"
+                               placeholder="Add a url to the song, ie, YouTube"
                                name="linkToSong"
                                id="input-link-to-song">
                     </div>
                     <div class="form-group">
-                        <label for="input-image-url">Add Link to Song Image</label>
+                        <label for="input-image-url">Link to Song Image</label>
                         <input type="text"
                                class="form-control"
-                               placeholder="Enter a link to an image"
+                               placeholder="Add a url ending in a .jpeg or .png"
                                name="imgSongURL"
                                id="input-image-url">
                     </div>

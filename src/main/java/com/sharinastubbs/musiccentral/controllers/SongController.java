@@ -41,4 +41,12 @@ public class SongController {
         songRespository.save(newSong);
         return new RedirectView("/artists/" + id);
     }
+
+   @PostMapping("/song/delete")
+    public RedirectView deleteSongFromDatabase (Long songId, Long artistId) {
+        songRespository.deleteById(songId);
+        return new RedirectView("/artists/" + artistId);
+   }
+
+    // TODO: add in JS alert - are you sure you want to delete artist?
 }

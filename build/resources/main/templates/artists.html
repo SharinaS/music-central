@@ -15,8 +15,13 @@
                 <div class="row">
                     <div class="each-artist" th:each="artist : ${artistsList}">
                         <h3 th:text="${artist.artistName}"></h3>
-                        <img th:src="${artist.artistImageURL}" class="image" />
+                        <a th:href="${'/artists/' + artist.id}"><img th:src="${artist.artistImageURL}" class="image"></a>
                         <p class="link"><a th:href="${'/artists/' + artist.id}">Songs</a></p>
+                        <!-- delete the artist (and associated songs) -->
+                        <form method="POST" action="/artist/delete">
+                            <input type="hidden" th:value="${artist.id}" name="artistId">
+                            <input type="submit" value="Delete Artist">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -30,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="input-image-url">Link to Artist Image</label>
-                        <input type="text" class="form-control" placeholder="http://placekitten.com/200/300" name="artistImageURL" id="input-image-url">
+                        <input type="text" class="form-control" placeholder="Add a url ending in .jpeg or .png" name="artistImageURL" id="input-image-url">
                     </div>
                     <input type="submit" value="Add Artist">
                 </form>

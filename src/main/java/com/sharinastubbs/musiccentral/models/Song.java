@@ -46,6 +46,14 @@ public class Song {
         return songGenre;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
