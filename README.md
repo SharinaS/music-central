@@ -1,12 +1,13 @@
 # MusicCentral
-A fullstack Java application and RESTful API that saves favorite songs and albums, and links favorite songs over to user's preferred online song library, such as YouTube.
+A fullstack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
 
 MusicCentral is currently deployed on Heroku, and can be used to keep track of your favorite music [here](https://still-cove-96764.herokuapp.com/).
 
 # Contributor
 Sharina Stubbs
+
 ### About
-Java software developer and life-long learner. Works to write clean and intelligent code, maintain a solid sense of humor, a learning mindset and an ever-improving emotional IQ, not necessarily in that order.
+Java software developer with prior experience in medicine, yacht-racing, and music (at one time, was pretty decent as a string base player). Strives to write clean and intelligent code, maintain a solid sense of humor, a learning mindset and an ever-improving emotional IQ, not necessarily in that order.
 
 Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
 
