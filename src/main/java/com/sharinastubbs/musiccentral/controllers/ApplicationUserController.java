@@ -41,17 +41,16 @@ public class ApplicationUserController {
     @PostMapping("/signup")
     public RedirectView signupForAccount(String username, String password, String firstname) {
         if (applicationUserRepository.findByUsername(username) == null) {
-            // create and save a new user and let them stay logged in
+            // create and save a new user
             ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstname);
             applicationUserRepository.save(newUser);
+            // let new user stay signed in
             Authentication authentication = new UsernamePasswordAuthenticationToken(newUser,
-                    null,
-                    new ArrayList<>());
+                    null, new ArrayList<>());
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            //TODO: redirect over to albums page
-            return new RedirectView("/");
+            return new RedirectView("/artists");
         } else {
-            // user needs to choose a different username. Note that taken is the param.
+            // if username already exists, user needs to choose a different username. Note that taken is the param.
             return new RedirectView("/signup?taken=true");
         }
     }
