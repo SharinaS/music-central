@@ -18,11 +18,18 @@
                         <p th:text="${song.songGenre}"></p>
                         <a th:href="${song.linkToSong}" target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
                         <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
+
                         <!-- delete song -->
                         <form method="POST" action="/song/delete">
                             <input type="hidden" th:value="${song.id}" name="songId">
                             <input type="hidden" th:value="${artist.id}" name="artistId">
                             <input type="submit" value="Delete Song">
+                        </form>
+                        <!-- edit song -->
+                        <form method="POST" action="/song/edit">
+                            <input type="hidden" th:value="${song.id}" name="songId">
+                            <input type="hidden" th:value="${artist.id}" name="artistId">
+                            <input type="submit" value="Update Song">
                         </form>
                     </div>
                 </div>

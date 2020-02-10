@@ -29,6 +29,7 @@ public class SongController {
         return "songs";
     }
 
+    // takes the information gathered in the form and adds it to the database
     @PostMapping("artists/{id}")
     public RedirectView addSongToDatabase(@PathVariable long id,
                                           String songTitle,
@@ -48,5 +49,20 @@ public class SongController {
         return new RedirectView("/artists/" + artistId);
    }
 
-    // TODO: add in JS alert - are you sure you want to delete artist?
+    // TODO: add in JS alert - are you sure you want to delete song?
+
+    @PostMapping("/song/edit")
+    public RedirectView updateSongDetails(Long songId, Long artistId, Model m) {
+        // when user clicks on the update button, the information about that song is collected in a list from the
+        // DB. Over in th, iterate through that list and populate the form with that info. Or, can we just
+        // do it through the model? Send the songName via the model, for example, and have th update the form.
+
+        // add the data about the song to the model
+        m.addAttribute("songId", songRespository.getOne(songId).getSongTitle());
+        m.addAttribute("linkToSong", songRespository.getOne(songId).getLinkToSong());
+        m.addAttribute("imgSongURL", songRespository.getOne(songId).getImgSongURL());
+        m.addAttribute("songGenre", songRespository.getOne(songId).getSongGenre());
+
+        return new RedirectView("/artists/" + artistId);
+    }
 }
