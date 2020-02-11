@@ -1,6 +1,8 @@
 # MusicCentral
 A fullstack Java application and RESTful API that saves favorite songs and albums, and links favorite songs over to user's preferred online song library, such as YouTube.
 
+![Screenshot of song view](assets/song-view.png)
+
 # Contributor
 Sharina Stubbs
 ### About
