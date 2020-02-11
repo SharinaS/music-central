@@ -3,6 +3,8 @@ A fullstack Java application and RESTful API that lets a user save information a
 
 MusicCentral is currently deployed on Heroku, and can be used to [keep track of your favorite music here](https://still-cove-96764.herokuapp.com/), though remember, while MusicCentral is functional, it is still under construction, so it will look a little different everytime you signin. 
 
+![Screenshot of song view](assets/song-view.png)
+
 # Contributor
 Sharina Stubbs
 
