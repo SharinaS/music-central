@@ -54,6 +54,27 @@ public class Song {
         return artist;
     }
 
+    // Setters
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
+    }
+
+    public void setLinkToSong(String linkToSong) {
+        this.linkToSong = linkToSong;
+    }
+
+    public void setImgSongURL(String imgSongURL) {
+        this.imgSongURL = imgSongURL;
+    }
+
+    public void setSongGenre(String songGenre) {
+        this.songGenre = songGenre;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
