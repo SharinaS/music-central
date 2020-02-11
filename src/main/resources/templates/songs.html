@@ -16,21 +16,11 @@
                     <div class="each-song" th:each="song : ${artist.songs}">
                         <!-- show song and update song -->
                         <form method="POST" action="/song/edit">
-                            <!-- song title -->
+                            <!-- song title -- FINISH STYLING -->
                             <h3 class="text-to-hide" th:text="${song.songTitle}"></h3>
                             <div class="form-group">
                                 <input class="form-to-show form-control" hidden name="newSongTitle" th:value="${song.songTitle}">
                             </div>
-
-                            <!-- SAMPLE CODE TO DELETE ---- for styling form
-                            <label for="input-song-title">Song Title</label>
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Enter Song Title"
-                                   name="songTitle"
-                                   id="input-song-title">
-                            -->
-
                             <!-- songGenre -->
                             <p class="text-to-hide" th:text="${song.songGenre}"></p>
                             <input class="form-to-show" hidden name="newSongGenre" th:value="${song.songGenre}">
@@ -46,16 +36,17 @@
                             <!-- submit / save -->
                             <input class="form-to-show" type="submit" hidden value="Save Changes">
                         </form>
-                        <!-- delete song -->
-                        <div class="row">
+
+                        <div class="row justify-content-md-center">
+                            <!-- edit song -->
+                            <button class="edit-button text-to-hide">Edit</button>
+                            <!-- delete song -->
                             <form method="POST" action="/song/delete">
                                 <input type="hidden" th:value="${song.id}" name="songId">
                                 <input type="hidden" th:value="${artist.id}" name="artistId">
                                 <input type="submit" value="Delete">
                             </form>
                         </div>
-                            <!-- edit song -->
-                            <button class="edit-button text-to-hide">Edit</button>
                     </div>
                 </div>
             </div> <!-- /col-8 -->

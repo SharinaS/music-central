@@ -51,7 +51,7 @@ public class SongController {
 
     // TODO: add in JS alert - are you sure you want to delete song?
 
-    // On button click, of 'Update', form appears for user to edit and submit new song data.
+    // On button click, of 'Edit', form appears for user to edit and save new song data.
     @PostMapping("/song/edit")
     public RedirectView editSongDetails(Long songId, Long artistId, String newSongTitle,
                                         String newLinkToSong,
