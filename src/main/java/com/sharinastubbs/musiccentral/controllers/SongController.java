@@ -51,18 +51,21 @@ public class SongController {
 
     // TODO: add in JS alert - are you sure you want to delete song?
 
+    // On button click, of 'Update', form appears for user to edit and submit new song data.
     @PostMapping("/song/edit")
-    public RedirectView updateSongDetails(Long songId, Long artistId, Model m) {
-        // when user clicks on the update button, the information about that song is collected in a list from the
-        // DB. Over in th, iterate through that list and populate the form with that info. Or, can we just
-        // do it through the model? Send the songName via the model, for example, and have th update the form.
+    public RedirectView editSongDetails(Long songId, Long artistId, String newSongTitle,
+                                        String newLinkToSong,
+                                        String newImgSongURL,
+                                        String newSongGenre) {
 
-        // add the data about the song to the model
-        m.addAttribute("songId", songRespository.getOne(songId).getSongTitle());
-        m.addAttribute("linkToSong", songRespository.getOne(songId).getLinkToSong());
-        m.addAttribute("imgSongURL", songRespository.getOne(songId).getImgSongURL());
-        m.addAttribute("songGenre", songRespository.getOne(songId).getSongGenre());
+        // set old song details to the new song details
+        Song songBeingEdited = songRespository.getOne(songId);
+        songBeingEdited.setSongTitle(newSongTitle);
+        songBeingEdited.setLinkToSong(newLinkToSong);
+        songBeingEdited.setImgSongURL(newImgSongURL);
+        songBeingEdited.setSongGenre(newSongGenre);
 
+        songRespository.save(songBeingEdited);
         return new RedirectView("/artists/" + artistId);
     }
 }
