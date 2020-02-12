@@ -5,6 +5,14 @@ MusicCentral is currently deployed on Heroku, and can be used to [keep track of 
 
 ![Screenshot of song view](assets/song-view.png)
 
+## Tech Used
+* Java
+* Thymeleaf
+* PostgreSQL
+* Spring MVC (and Spring Boot)
+* JQuery
+* Bootstrap
+
 # Contributor
 Sharina Stubbs
 
@@ -33,6 +41,8 @@ Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
 * Relational Database Management System
 * RESTful API
 * Object Oriented Programming
+* Java
+* Model-View-Controller
 
 # User Stories
 Please see file in repo, called USERSTORIES.md
