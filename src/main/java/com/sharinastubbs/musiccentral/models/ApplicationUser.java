@@ -75,4 +75,6 @@ public class ApplicationUser implements UserDetails {
     public List<Artist> getArtists() {
         return artists;
     }
+
+    // TODO: Replace username with firstname if welcoming the user on the view.
 }

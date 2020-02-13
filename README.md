@@ -41,8 +41,7 @@ Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
 * Relational Database Management System
 * RESTful API
 * Object Oriented Programming
-* Java
-* Model-View-Controller
+* Model-View-Controller (MVC)
 
 # User Stories
 Please see file in repo, called USERSTORIES.md

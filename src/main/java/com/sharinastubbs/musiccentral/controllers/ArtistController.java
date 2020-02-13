@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -23,6 +22,7 @@ public class ArtistController {
     ArtistRepository artistRepository;
     @Autowired
     SongRespository songRespository;
+
 
     @GetMapping("/artists")
     public String showArtistsThatHaveBeenSavedInDatabase(Principal p, Model m){
@@ -44,8 +44,6 @@ public class ArtistController {
         if (p != null) {
             m.addAttribute("username", p.getName());
         }
-        //TODO: Do I want artists associated with a timestamp, to organize them from new to old?
-
         ApplicationUser user = applicationUserRepository.findByUsername(p.getName());
         // create a new artist and associate artist with current user
         Artist artist = new Artist(artistName, artistImageURL, user);
@@ -54,11 +52,13 @@ public class ArtistController {
         return new RedirectView("/artists");
     }
 
+
     @PostMapping("/artist/delete")
     public RedirectView deleteArtistFromDatabaseAndAssociatedSongs (Long artistId) {
         // set a variable as the artist id and get a list of all the artists songs
         Artist artist = artistRepository.getOne(artistId);
         List<Song> listOfArtistSongs = artist.getSongs();
+
         // if the list is full, delete the songs from the song repo by their id, otherwise, just delete the artist.
         if(!listOfArtistSongs.isEmpty()) {
             for (Song song : listOfArtistSongs) {
@@ -70,5 +70,5 @@ public class ArtistController {
         return new RedirectView("/artists");
     }
 
-    // TODO: add in JS alert - are you sure you want to delete artist?
+    //TODO: Consider making a timestamp for artists, to organize them from new to old, etc.
 }

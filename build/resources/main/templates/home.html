@@ -15,6 +15,10 @@
     <!-- if person not logged in or new to the app -->
     <div class="container" th:unless="${username}">
     <!-- Maybe the signup page appears, and there's a nice description of the app with screenshots and such. -->
+        <h1>Welcome!</h1>
+        <h2>Music Central makes it easy to find and play your favorite songs</h2>
+        <p>We are under construction! The site is functional, however, and ready to be used.</p>
+        <p>Please signup or login to access your music.
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </body>
