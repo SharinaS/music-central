@@ -32,6 +32,14 @@ public class Artist {
     }
 
     // Getters
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public long getId() {
+        return id;
+    }
+
     public String getArtistName() {
         return artistName;
     }
@@ -40,12 +48,13 @@ public class Artist {
         return artistImageURL;
     }
 
-    public long getId() {
-        return id;
+    // Setters
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
-    public List<Song> getSongs() {
-        return songs;
+    public void setArtistImageURL(String artistImageURL) {
+        this.artistImageURL = artistImageURL;
     }
 
     // ToString
