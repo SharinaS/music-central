@@ -30,3 +30,16 @@
     background-color: silver;
     border-radius: 12%;
 }
+
+/* head.masthead inspired by CodePen Pen by Henry Schmeding at https://codepen.io/htschmed/pen/RMEEzM */
+header.masthead {
+    position: relative;
+    background-color: #343a40;
+    background: url("https://sharinastubbs.s3-us-west-2.amazonaws.com/concert_crowd.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
