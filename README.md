@@ -81,3 +81,4 @@ PostgreSQL, a free and open-source relational database management system, is use
   * Set up S3 bucket to store pictures used for website
   * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
   * Cloud watch events processed by a lambda function
+  * About me page - static - stored on S3, and linked over to from my MusicCentral.
