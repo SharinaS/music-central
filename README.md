@@ -76,3 +76,7 @@ PostgreSQL, a free and open-source relational database management system, is use
   * Can view and be notified of addition of artists and/or songs, and be exposed to different genres. 
 * Display a notification to user when other users add an artist. Consider WebSockets or AWS 
   * Using WebSockets, make notifications system show updates in real time, not just when the page refreshes.
+* AWS Services
+  * Deploy on Elastic Beanstalk
+  * Set up S3 bucket to store pictures used for website
+  * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
