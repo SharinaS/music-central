@@ -86,6 +86,22 @@ PostgreSQL, a free and open-source relational database management system, is use
 * styles.css does not go in a static folder; it gets uploaded as a file, so just link directly over to it from the html file.
 * You can make a custom error page super easily - just make it, call it error.html. and when you are setting up the static site on AWS, you tell it to go to that error page.
 
+### CloudFront
+* It is a genius idea - when the first user accesses the site, that is pulled into an edge location closest to the user. Every user in that vicinity for a period of time, then accesses the file from the edge location. 
+  * Improves speed and retains quality. 
+  * Content is cached in an edge location.
+  * Can be used with an S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53.
+* Cloudfront is a networking tool; it's in `Networking & Content Delivery` on the AWS Console, b/c it's a Content Delivery Network (CDN), which consists of a collection of Edge Locations.
+  * Can create a web distribution or a RTMP distribution (for media files).
+* Used for the S3 Bucket that hosts the static About Me page. 
+* To actually use cloudfront as a url to a static webpage, once you've created the distribution, you copy the domain name, tack the file name of the html page to the end of it, and add http to the beginning of it. Put it in your code, like so:
+  `href="http://d3evmka24wwdik.cloudfront.net/sharina.html"`
+
+### EC2 
+* A virtual server in the cloud
+* One of the oldest AWS services (along with S3)
+* Lets you to scale up and down regarding capacity, as computing requirements evolve.
+
 # Stretch Goals to Consider
 * Set up a many to many relationship between users so a user can follow other users and see what music they like / other users can follow signed in user.
   * Can view and be notified of addition of artists and/or songs, and be exposed to different genres. 
@@ -93,7 +109,6 @@ PostgreSQL, a free and open-source relational database management system, is use
   * Using WebSockets, make notifications system show updates in real time, not just when the page refreshes.
 * AWS Services
   * Deploy on Elastic Beanstalk to create an EC2 instance, and have an ALB
-  * Set up S3 bucket to store pictures used for website
   * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
   * Cloud watch events processed by a lambda function
   * About me page - static - stored on S3, and linked over to from my MusicCentral.
