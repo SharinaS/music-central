@@ -25,11 +25,11 @@
                             <!-- songGenre -->
                             <p class="text-to-hide" th:text="${song.songGenre}"></p>
                             <input class="form-to-show" hidden name="newSongGenre" th:value="${song.songGenre}">
-                            <!-- URL to picture -->
-                            <a class="text-to-hide" th:href="${song.imgSongURL}"
+                            <!-- show and edit picture URL -->
+                            <a class="text-to-hide" th:href="${song.linkToSong}"
                                target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
                             <input class="form-to-show" hidden name="newImgSongURL" th:value="${song.imgSongURL}">
-                            <!-- URL to song -->
+                            <!-- show and edit link to song -->
                             <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
                             <input class="form-to-show" hidden name="newLinkToSong" th:value="${song.linkToSong}">
                             <!-- artist and song ids -->
