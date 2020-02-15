@@ -13,6 +13,7 @@
 
     </div>
     <!-- if person not logged in or new to the app -->
+    <!-- Inspiration for bootstrap from Pen by Henry Schmeding on CodePen - https://codepen.io/htschmed/pen/RMEEzM -->
     <header class="masthead text-black text-center" th:unless="${username}">
         <div class="overlay"></div>
         <div class="container">
@@ -21,31 +22,23 @@
                     <h1 class="mb-5">Music Central makes it easy to keep track of and play your favorite songs</h1>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <div class="row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                    <div class="row justify-content-start">
+                        <div class="col-4">
                             <a href="/login">Login</a>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-4">
                             <a href="/signup">Signup</a>
                         </div>
+                        <div class="col-4">
+                            <a href="http://sharinastubbs.s3-website-us-west-2.amazonaws.com/">About the Developer</a>
+                        </div>
                     </div>
-
-
-                    <p>MusicCentral is a storage site, not specifically for your music, but for information about your music, such as, your favorite artists, your favorite songs, and the location you like to play those songs. This site plays very well with YouTube - once you add the link to your song on YouTube, you simply slick on that song, and YouTube opens up and plays that song. This site is perfect for those who love music, but who are terrible at remember what their favorite song is called, and who that favorite artist is.</p>
+                    <p>MusicCentral is your personal music reference site. It's your creation, that you can fill with your favorite artists, your favorite songs, and the location from which you like to play those songs. This site plays very well with YouTube - once you add the link to your song on YouTube, you simply slick on that song, and YouTube opens up and plays that song. This site is perfect for those who love music, but who are terrible at remember what their favorite song is called, and who that favorite artist is.</p>
                     <h3>We are under construction! The site is functional, however, and ready to be used.</h3>
                 </div>
             </div>
         </div>
     </header>
-
-    <!--
-    <div class="container" th:unless="${username}">
-        <h1>Welcome!</h1>
-        <h2>Music Central makes it easy to keep track of and play your favorite songs</h2>
-        <p>We are under construction! The site is functional, however, and ready to be used.</p>
-        <p>MusicCentral is a storage site, not specifically for your music, but for information about your music, such as, your favorite artists, your favorite songs, and the location you like to play those songs. This site plays very well with YouTube - once you add the link to your song on YouTube, you simply slick on that song, and YouTube opens up and plays that song. This site is perfect for those who love music, but who are terrible at remember what their favorite song is called, and who that favorite artist is.</p>
-    </div>
-    -->
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

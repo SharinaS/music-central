@@ -35,7 +35,7 @@
 header.masthead {
     position: relative;
     background-color: #343a40;
-    background: url("https://sharinastubbs.s3-us-west-2.amazonaws.com/concert_crowd.jpg") no-repeat center center;
+    background: url("https://musiccentralstorage.s3-us-west-2.amazonaws.com/concert_crowd.jpg") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
