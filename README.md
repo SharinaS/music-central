@@ -12,6 +12,8 @@ MusicCentral is currently deployed on Heroku, and can be used to [keep track of 
 * Spring MVC (and Spring Boot)
 * JQuery
 * Bootstrap
+* AWS Services
+  * S3 - stores splash page image(s)
 
 # Contributor
 Sharina Stubbs
@@ -70,6 +72,19 @@ PostgreSQL, a free and open-source relational database management system, is use
 * It is way to easy to overlook adding in a very necessary annotation, such as @Controller
 * Scroll down to read every error message; the one near the bottom might be the very one you're looking for.
 * Forms are the devil - particularly when you think it's a good idea to copy paste part of the form, and you forget to update the `name=`.
+
+## AWS Services
+### S3
+* It is very easy to store an image on S3 after you make a bucket, and then use it in your website.
+  * After making sure the image is public, you just copy the link, and add it to your code.
+* S3 doesn't just store images or video; it can host an entire static site with multiple files. 
+  * It scales automatically as the website changes in size and popularity - great for when you suspect a sudden and large increase number of users.
+  * Wordpress cannot be hosted on S3, and dynamic websites cannot be hosted on S3. 
+* You can use bucket policies to make entire S3 buckets public. 
+  * Saves time when uploading images or files, so you don't have to make each individual one public.
+  * Appropriate for when you're using the bucket to host a static site.
+* styles.css does not go in a static folder; it gets uploaded as a file, so just link directly over to it from the html file.
+* You can make a custom error page super easily - just make it, call it error.html. and when you are setting up the static site on AWS, you tell it to go to that error page.
 
 # Stretch Goals to Consider
 * Set up a many to many relationship between users so a user can follow other users and see what music they like / other users can follow signed in user.
