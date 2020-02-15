@@ -16,7 +16,7 @@
                     <div class="each-song" th:each="song : ${artist.songs}">
                         <!-- show song and update song -->
                         <form method="POST" action="/song/edit">
-                            <!-- song title -- FINISH STYLING -->
+                            <!-- song title -->
                             <h3 class="text-to-hide" th:text="${song.songTitle}"></h3>
                             <div class="form-group">
                                 <input class="form-to-show form-control" hidden name="newSongTitle"
