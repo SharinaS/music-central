@@ -16,29 +16,55 @@
                     <div class="each-song" th:each="song : ${artist.songs}">
                         <!-- show song and update song -->
                         <form method="POST" action="/song/edit">
+
                             <!-- song title -->
                             <h3 class="text-to-hide" th:text="${song.songTitle}"></h3>
                             <div class="form-group">
-                                <input class="form-to-show form-control" hidden name="newSongTitle"
-                                       th:value="${song.songTitle}">
+                                <label class="form-to-show" hidden for="change-song-title">New Song Title</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newSongTitle" th:value="${song.songTitle}"
+                                       id="change-song-title">
                             </div>
-                            <!-- songGenre -->
+
+                            <!-- show and edit songGenre -->
                             <p class="text-to-hide" th:text="${song.songGenre}"></p>
-                            <input class="form-to-show" hidden name="newSongGenre" th:value="${song.songGenre}">
-                            <!-- URL to picture -->
-                            <a class="text-to-hide" th:href="${song.imgSongURL}"
-                               target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
-                            <input class="form-to-show" hidden name="newImgSongURL" th:value="${song.imgSongURL}">
-                            <!-- URL to song -->
+                            <div class="form-group">
+                                <label class="form-to-show" hidden for="change-genre">New Genre</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newSongGenre" th:value="${song.songGenre}"
+                                       id="change-genre">
+                            </div>
+                            <!-- show and edit picture URL -->
+                            <a class="text-to-hide" th:href="${song.linkToSong}" target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
+                            <div class="form-group">
+                                <label class="form-to-show" hidden for="change-picture">New Link to Image</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newImgSongURL" th:value="${song.imgSongURL}"
+                                       id="change-picture">
+                            </div>
+                            <!-- show and edit link to song -->
                             <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
-                            <input class="form-to-show" hidden name="newLinkToSong" th:value="${song.linkToSong}">
-                            <!-- artist and song ids -->
+                            <div class="form-group">
+                                <label class="form-to-show" hidden for="change-link-to-song">New Link to Song</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newLinkToSong" th:value="${song.linkToSong}"
+                                       id="change-link-to-song">
+                            </div>
+                            <!-- send over artist and song ids to controller -->
                             <input hidden th:value="${song.id}" name="songId">
                             <input type="hidden" th:value="${artist.id}" name="artistId">
                             <!-- submit / save -->
                             <input class="form-to-show" type="submit" hidden value="Save Changes">
                         </form>
-
+                        <!-- edit and delete Buttons -->
                         <div class="row justify-content-md-center">
                             <!-- edit song -->
                             <button class="edit-button text-to-hide">Edit</button>
