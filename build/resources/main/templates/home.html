@@ -9,7 +9,7 @@
     <div th:replace="fragments/nav :: nav"></div>
     <!-- if person logged in -->
     <div class="container" th:if="${username}">
-        <!-- something goes here, such as favorites of favorites -->
+        <!-- something goes here, such as tips and tricks to utilize the app -->
 
     </div>
     <!-- if person not logged in or new to the app -->
@@ -19,13 +19,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
-                    <h1 class="mb-5">MusicCentral makes it easy to keep track of and play your favorite songs</h1>
+                    <h1 class="mb-5">Welcome to MusicCentral</h1>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <div class="row justify-content-md-center">
-                        <div class="col-2 link-button">
-                            <a href="/login">Login</a>
-                        </div>
                         <div class="col-2 link-button">
                             <a href="/signup">Signup</a>
                         </div>
@@ -34,8 +31,34 @@
             </div>
         </div>
     </header>
-    <p>MusicCentral is your personal music reference site. It's your creation, that you can fill with your favorite artists, your favorite songs, and the location from which you like to play those songs. This site plays very well with YouTube - once you add the link to your song on YouTube, you simply slick on that song, and YouTube opens up and plays that song. This site is perfect for those who love music, but who are terrible at remember what their favorite song is called, and who that favorite artist is.</p>
-    <h3>We are under construction! The site is functional, however, and ready to be used.</h3>
+    <!-- 3 circle images section -->
+    <section class="features text-center bg-light" th:unless="${username}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-item mx-auto mb-5 mb-lg-0">
+                        <h5>Remember Your Favorites</h5>
+                        <img class="img-fluid rounded-circle mb-3" src="https://musiccentralstorage.s3-us-west-2.amazonaws.com/rockband.jpg" alt="rock band performing on stage">
+                        <p class="font-weight-light mb-0">Never forget that favorite artist or song again</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-item mx-auto mb-5 mb-lg-0">
+                        <h5>Play Your Music</h5>
+                        <img class="img-fluid rounded-circle mb-3" src="https://musiccentralstorage.s3-us-west-2.amazonaws.com/classicalmusic.jpg" alt="picture of a cellist performing">
+                        <p class="font-weight-light mb-0">Customize your own link over to your music hosting sites, like YouTube!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-item mx-auto mb-5 mb-lg-0">
+                        <h5>MusicCentral is Your Creation</h5>
+                        <img class="img-fluid rounded-circle mb-3" src="https://musiccentralstorage.s3-us-west-2.amazonaws.com/drumming.jpg" alt="drummers in a row">
+                        <p class="font-weight-light mb-0">Fill up this site with your favorite images of your artists and music</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
