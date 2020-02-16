@@ -1,5 +1,5 @@
 # MusicCentral
-A fullstack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
+A full stack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
 
 MusicCentral is currently deployed on both Heroku and AWS
 * [See it live on Heroku](https://yourmusiccentral.herokuapp.com/)
