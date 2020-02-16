@@ -7,6 +7,9 @@ MusicCentral, besides helping to organize some music, served as a learning playg
 
 ![Screenshot of song view](assets/song-view.png)
 
+## Version
+This is currently version 2.0
+
 ## Tech Used
 * Java
 * Thymeleaf
@@ -17,7 +20,7 @@ MusicCentral, besides helping to organize some music, served as a learning playg
 * AWS Services
   * S3 - stores splash page image(s) and hosts a static website that is about the developer
   * CloudFront - a web distribution is created for the static website hosted in the S3 bucket.
-  * EC2
+  * Elastic Bean Stalk with a PostgreSQL database that hosts the Java application
 
 # Contributor
 Sharina Stubbs
@@ -106,9 +109,28 @@ PostgreSQL, a free and open-source relational database management system, is use
   `href="http://d3evmka24wwdik.cloudfront.net/sharina.html"`
 
 ### EC2 
-* A virtual server in the cloud
+* A virtual server(s) in the cloud - revolutionized getting a server
 * One of the oldest AWS services (along with S3)
 * Lets you to scale up and down regarding capacity, as computing requirements evolve.
+* On Demand - you pay by the second, otherwise you get into a contract for discounts, you bid a price or have a dedicated host. 
+  * On demand great for demoing a app or exploring a concept.
+  
+### Elastic Beanstalk
+* Used to deploy applications to the cloud without dealing with the infrastructure running those applications
+* Handles details of capacity provisioning, load balancing, scaling, and application health monitoring
+* Because I used an already existing app, I had to build a jar file from the terminal, `./gradlew bootJar`, inorder to have a file to upload to AWS.
+* Initially made an unstable environment by immediately uploading the jar file. Removed it, then simply started with a "Sample Application".
+* Because this app has a postgres database, I had to set up an AWS postgres database ... creation of this environment does not happen quickly... and setting up the environmental variables was only slightly intuitive
+  * POSGRESQL_PASSWORD <password created during AWS database setup>
+  * POSTGRESQL_USERNAME <username created during AWS database setup>
+  * DATABASE_URL <postgresql://url-of-database-found-in-databases-connectivity-and-security:5432/database-name-found-in-databases-configuration
+* When you make the jar file (to hold all the app files as one file), you can check that the file runs properly by adding the environmental variables to the env
+  * `export DATABASE_URL=postgresql://localhost:5432/musiccentral`
+  * export username and password variables if you're a PC user
+  * check that the environmental variables got stored with the terminal command `env`
+  * run the app from the terminal by typing in `java -jar build/libs/musiccentral-0.0.1-SNAPSHOT.jar`, which is the command followed by the file location.
+  * Once convinced everything works fine with the file, upload it to the app on elastic beanstalk
+
 
 ### Satisfaction
 * It's very satisfying to interact with the cloud, and get the cloud and an app interacting with each other. 
