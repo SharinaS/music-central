@@ -1,16 +1,28 @@
 # MusicCentral
 A fullstack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
 
-MusicCentral is currently deployed on Heroku, and can be used to [keep track of your favorite music here](https://yourmusiccentral.herokuapp.com/), though remember, while MusicCentral is functional, it is still under construction, so it will look a little different everytime you signin. 
+MusicCentral is currently deployed on via both Heroku and AWS
+* [See it live on Heroku](https://yourmusiccentral.herokuapp.com/)
+* [See it live on AWS](http://musiccentral.link/)
+
+While MusicCentral is functional, it is still under construction, so it will look a little different every time you signin. 
 
 MusicCentral, besides helping to organize some music, served as a learning playground for several AWS services.
 
 ![Screenshot of song view](assets/song-view.png)
 
-## Version
-This is currently version 2.0
+# Contributor
+Sharina Stubbs
 
-## Tech Used
+### About
+Java software developer with prior experience in medicine, yacht-racing, and music (at one time, was pretty decent as a string base player). Strives to write clean and intelligent code, maintain a solid sense of humor, a learning mindset and an ever-improving emotional IQ, not necessarily in that order.
+
+Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
+
+# Version
+This is currently version 2.0; a version that uses several AWS services for deployment
+
+# Tech Used
 * Java
 * Thymeleaf
 * PostgreSQL
@@ -20,15 +32,8 @@ This is currently version 2.0
 * AWS Services
   * S3 - stores splash page image(s) and hosts a static website that is about the developer
   * CloudFront - a web distribution is created for the static website hosted in the S3 bucket.
-  * Elastic Bean Stalk with a PostgreSQL database that hosts the Java application
-
-# Contributor
-Sharina Stubbs
-
-### About
-Java software developer with prior experience in medicine, yacht-racing, and music (at one time, was pretty decent as a string base player). Strives to write clean and intelligent code, maintain a solid sense of humor, a learning mindset and an ever-improving emotional IQ, not necessarily in that order.
-
-Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
+  * Elastic Beanstalk (with a PostgreSQL database) that hosts the Java application
+  * Amazon Route 53 - hosts domain name and routes traffic to the elastic beanstalk environment
 
 # Dependencies
 (descriptions are from the Spring Initializer, at `start.spring.io`)
@@ -107,13 +112,6 @@ PostgreSQL, a free and open-source relational database management system, is use
 * Used for the S3 Bucket that hosts the static About Me page. 
 * To actually use cloudfront as a url to a static webpage, once you've created the distribution, you copy the domain name, tack the file name of the html page to the end of it, and add http to the beginning of it. Put it in your code, like so:
   `href="http://d3evmka24wwdik.cloudfront.net/sharina.html"`
-
-### EC2 
-* A virtual server(s) in the cloud - revolutionized getting a server
-* One of the oldest AWS services (along with S3)
-* Lets you to scale up and down regarding capacity, as computing requirements evolve.
-* On Demand - you pay by the second, otherwise you get into a contract for discounts, you bid a price or have a dedicated host. 
-  * On demand great for demoing a app or exploring a concept.
   
 ### Elastic Beanstalk
 * Used to deploy applications to the cloud without dealing with the infrastructure running those applications
@@ -131,6 +129,9 @@ PostgreSQL, a free and open-source relational database management system, is use
   * run the app from the terminal by typing in `java -jar build/libs/musiccentral-0.0.1-SNAPSHOT.jar`, which is the command followed by the file location.
   * Once convinced everything works fine with the file, upload it to the app on elastic beanstalk
 
+### Amazon Route 53
+* To route DNS traffic to the elastic beanstalk environment
+* Info about routing to the elastic beanstalk environment [here on AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html)
 
 ### Satisfaction
 * It's very satisfying to interact with the cloud, and get the cloud and an app interacting with each other. 
@@ -142,7 +143,7 @@ PostgreSQL, a free and open-source relational database management system, is use
 * Display a notification to user when other users add an artist. Consider WebSockets or AWS 
   * Using WebSockets, make notifications system show updates in real time, not just when the page refreshes.
 * AWS Services
-  * Deploy on Elastic Beanstalk to create an EC2 instance, and have an ALB
+  * Set up a load balancer
   * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
   * Cloud watch events processed by a lambda function
  

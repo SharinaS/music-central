@@ -60,3 +60,11 @@ header.masthead {
     color: white;
     text-decoration: none;
 }
+
+.features {
+    padding: 7rem 0rem;
+}
+
+.features .features-item {
+    max-width: 18rem;
+}

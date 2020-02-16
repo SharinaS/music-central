@@ -11,38 +11,61 @@
         which has many examples -->
 
         <!-- if person is logged in... -->
-            <nav class="navbar navbar-expand-sm bg-light" th:if="${username}">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">MusicCentral</a>
-                    </li>
+        <nav class="navbar navbar-light bg-light static-top" th:if="${username}">
+            <div class="container">
+                <!-- items on left side of nav bar -->
+                <ul class="nav">
+                    <a class="navbar-brand" href="/">MusicCentral</a>
                     <li class="nav-item">
                         <a class="nav-link" href="/artists">Artists</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                    <li class="nav-item">
-<!--                        <a class="nav-link" href="http://sharinastubbs.s3-website-us-west-2.amazonaws.com/">About</a>-->
                         <a class="nav-link" href="http://d3evmka24wwdik.cloudfront.net/sharina.html">About</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-text">Hello, [[${username}]]!</li>
+                <!-- items on right side of nav bar -->
+                <ul class="nav justify-content-end">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
                 </ul>
-            </nav>
-        <!-- if person is new or needs to login... -->
-        <nav class="navbar navbar-expand-sm bg-light" th:unless="${username}">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">MusicCentral</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                    <a class="nav-link" href="/signup">Signup</a>
-                </li>
-            </ul>
+            </div>
+        </nav>
+
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/">MusicCentral</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/artists">Artists</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/logout">Logout</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--&lt;!&ndash;                        <a class="nav-link" href="http://sharinastubbs.s3-website-us-west-2.amazonaws.com/">About</a>&ndash;&gt;-->
+<!--                    <a class="nav-link" href="http://d3evmka24wwdik.cloudfront.net/sharina.html">About</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-text">Hello, [[${username}]]!</li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+        <!-- User is not yet signed in or does not have an account -->
+        <nav class="navbar navbar-light bg-light static-top" th:unless="${username}">
+            <div class="container">
+                <a class="navbar-brand" href="/">MusicCentral</a>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </section>
 </body>
