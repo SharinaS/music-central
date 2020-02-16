@@ -38,6 +38,7 @@
                                        name="newSongGenre" th:value="${song.songGenre}"
                                        id="change-genre">
                             </div>
+
                             <!-- show and edit picture URL -->
                             <a class="text-to-hide" th:href="${song.linkToSong}" target="_blank"><img th:src="${song.imgSongURL}" class="image"></a>
                             <div class="form-group">
@@ -48,6 +49,7 @@
                                        name="newImgSongURL" th:value="${song.imgSongURL}"
                                        id="change-picture">
                             </div>
+
                             <!-- show and edit link to song -->
                             <p class="link"><a th:href="${song.linkToSong}" target="_blank">Play Song</a></p>
                             <div class="form-group">
@@ -58,6 +60,7 @@
                                        name="newLinkToSong" th:value="${song.linkToSong}"
                                        id="change-link-to-song">
                             </div>
+
                             <!-- send over artist and song ids to controller -->
                             <input hidden th:value="${song.id}" name="songId">
                             <input type="hidden" th:value="${artist.id}" name="artistId">
