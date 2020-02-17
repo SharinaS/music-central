@@ -6,10 +6,7 @@
 </head>
 <body>
     <section th:fragment="nav">
-        <!-- Initial bootstrap code from https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp, which
-        also has code to create collapsible nav bar... and https://getbootstrap.com/docs/3.4/components/#navbar-links,
-        which has many examples -->
-
+        <!-- Inspiration from https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp, and https://getbootstrap.com/docs/3.4/components/#navbar-links -->
         <!-- if person is logged in... -->
         <nav class="navbar navbar-light bg-light static-top" th:if="${username}">
             <div class="container">
@@ -25,34 +22,12 @@
                 </ul>
                 <!-- items on right side of nav bar -->
                 <ul class="nav justify-content-end">
-
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
-
-<!--            <ul class="navbar-nav">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/">MusicCentral</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/artists">Artists</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/logout">Logout</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--&lt;!&ndash;                        <a class="nav-link" href="http://sharinastubbs.s3-website-us-west-2.amazonaws.com/">About</a>&ndash;&gt;-->
-<!--                    <a class="nav-link" href="http://d3evmka24wwdik.cloudfront.net/sharina.html">About</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="navbar-nav">-->
-<!--                <li class="nav-text">Hello, [[${username}]]!</li>-->
-<!--            </ul>-->
-<!--        </nav>-->
-
         <!-- User is not yet signed in or does not have an account -->
         <nav class="navbar navbar-light bg-light static-top" th:unless="${username}">
             <div class="container">

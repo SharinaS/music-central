@@ -74,6 +74,9 @@ PostgreSQL, a free and open-source relational database management system, is use
 ## Schemas
 ![Screenshot of schemas](assets/musicCentralTables.png)
 
+## AWS Architectural Diagram
+![Screenshot cloud diagram](assets/musicCentral-cloud.jpg)
+
 # How to Run the  Application via a Local Server
 * Clone MusicCentral from my Repo
 * If you are a Windows user, open the file called application.properties (`music-central > src > main > resources > application.properties`) and add your PostgreSQL username and password to the environmental variables. (If you're a MacOS user, there is no need).
