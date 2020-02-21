@@ -20,7 +20,7 @@ Java software developer with prior experience in medicine, yacht-racing, and mus
 Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
 
 # Version
-This is currently version 2.0; a version that uses several AWS services for deployment
+This is currently version 2.1; a version that uses several AWS services for deployment
 
 # Tech Used
 * Java
