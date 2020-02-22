@@ -1,6 +1,9 @@
 # MusicCentral
 A fullstack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
 
+![Screenshot of song view](assets/song-view.png)
+
+## See the Site
 MusicCentral is currently deployed on via both Heroku and AWS
 * [See it live on Heroku](https://yourmusiccentral.herokuapp.com/)
 * [See it live on AWS](http://musiccentral.link/)
@@ -9,9 +12,15 @@ While MusicCentral is functional, it is still under construction, so it will loo
 
 MusicCentral, besides helping to organize some music, served as a learning playground for several AWS services.
 
-![Screenshot of song view](assets/song-view.png)
+## Key-Words
+* Relational Database Management System
+* RESTful API / Services
+* CRUD
+* Object Oriented Programming
+* Model-View-Controller (MVC)
+* AWS Services
 
-# Contributor
+## Contributor
 Sharina Stubbs
 
 ### About
@@ -20,7 +29,7 @@ Java software developer with prior experience in medicine, yacht-racing, and mus
 Find me on [LinkedIn](https://www.linkedin.com/in/sharina-stubbs/).
 
 # Version
-This is currently version 2.0; a version that uses several AWS services for deployment
+This is currently version 2.1; a version that uses several AWS services for deployment
 
 # Tech Used
 * Java
@@ -35,7 +44,7 @@ This is currently version 2.0; a version that uses several AWS services for depl
   * Elastic Beanstalk (with a PostgreSQL database) that hosts the Java application
   * Amazon Route 53 - hosts domain name and routes traffic to the elastic beanstalk environment
 
-# Dependencies
+## Dependencies
 (descriptions are from the Spring Initializer, at `start.spring.io`)
 * Spring Data JPA
   * To persist data in SQL stores with data persistence API using Spring Data and Hibernate.
@@ -49,18 +58,6 @@ This is currently version 2.0; a version that uses several AWS services for depl
   * A modern server-side Java template engine for both web and standalone environments. Allows HTML to be correctly displayed in browsers and as static prototypes.
 * Spring Web
   * Build web, including Restful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.
-
-
-# Key-Words
-* Relational Database Management System
-* RESTful API / Services
-* CRUD
-* Object Oriented Programming
-* Model-View-Controller (MVC)
-* AWS Services
-
-# User Stories
-Please see file in repo, called USERSTORIES.md
 
 # Domain Modeling
 Pending.
@@ -93,6 +90,7 @@ PostgreSQL, a free and open-source relational database management system, is use
 
 ## AWS Services
 ### S3
+* Used for deploying the about me page, and for storing images used on the splash page.
 * It is very easy to store an image on S3 after you make a bucket, and then use it in your website.
   * After making sure the image is public, you just copy the link, and add it to your code.
 * S3 doesn't just store images or video; it can host an entire static site with multiple files. 
@@ -105,6 +103,7 @@ PostgreSQL, a free and open-source relational database management system, is use
 * You can make a custom error page super easily - just make it, call it error.html. and when you are setting up the static site on AWS, you tell it to go to that error page.
 
 ### CloudFront
+* Currently disabled; however it did front the about me page.
 * Cloudfront is a genius idea. 
 * When the first user accesses the site, the html page is pulled into an edge location closest to the user. Every user in that vicinity for a period of time then accesses the file from the edge location. 
   * Improves speed and retains quality. 
@@ -117,6 +116,7 @@ PostgreSQL, a free and open-source relational database management system, is use
   `href="http://d3evmka24wwdik.cloudfront.net/sharina.html"`
   
 ### Elastic Beanstalk
+* Used to deploy the website.
 * Used to deploy applications to the cloud without dealing with the infrastructure running those applications
 * Handles details of capacity provisioning, load balancing, scaling, and application health monitoring
 * Because I used an already existing app, I had to build a jar file from the terminal, `./gradlew bootJar`, inorder to have a file to upload to AWS.
@@ -149,4 +149,7 @@ PostgreSQL, a free and open-source relational database management system, is use
   * Set up a load balancer
   * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
   * Cloud watch events processed by a lambda function
+  * Look into continuous deployment options
  
+# User Stories
+Please see file in repo, called USERSTORIES.md
