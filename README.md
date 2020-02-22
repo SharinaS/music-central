@@ -1,16 +1,15 @@
 # MusicCentral
-A fullstack Java application and RESTful API that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube.
+A full stack Java application and RESTful API with AWS Services. A modern web app that lets a user save information about favorite artists and music. A user can peruse their music favorites and play their song of choice, by clicking on a song that opens up their preferred music site, such as YouTube. MusicCentral, besides helping to organize my music, served as a learning playground for several AWS services.
 
 ![Screenshot of song view](assets/song-view.png)
 
 ## See the Site
-MusicCentral is currently deployed on via both Heroku and AWS
-* [See it live on Heroku](https://yourmusiccentral.herokuapp.com/)
+MusicCentral is currently deployed on both Heroku and AWS
 * [See it live on AWS](http://musiccentral.link/)
+* [See it live on Heroku](https://yourmusiccentral.herokuapp.com/)
 
+### Under Construction
 While MusicCentral is functional, it is still under construction, so it will look a little different every time you signin. 
-
-MusicCentral, besides helping to organize some music, served as a learning playground for several AWS services.
 
 ## Key-Words
 * Relational Database Management System
