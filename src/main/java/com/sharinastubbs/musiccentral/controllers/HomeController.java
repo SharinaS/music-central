@@ -19,4 +19,7 @@ public class HomeController {
         }
         return "home";
     }
+
+    //TODO: Build out a footer, with link to About me page, copyright, etc.
+    // See mdbootstrap.com/docs/jquery/navigation/footer/
 }
