@@ -18,7 +18,7 @@
                         <a th:href="${'/artists/' + artist.id}"><img th:src="${artist.artistImageURL}" class="image"></a>
                         <p class="link"><a th:href="${'/artists/' + artist.id}">Songs</a></p>
                         <!-- delete the artist (and associated songs) -->
-                        <form method="POST" action="/artist/delete">
+                        <form method="POST" class="delete-artist" action="/artist/delete">
                             <input type="hidden" th:value="${artist.id}" name="artistId">
                             <input type="submit" value="Delete Artist">
                         </form>

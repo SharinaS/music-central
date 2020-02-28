@@ -72,7 +72,7 @@
                             <!-- edit song -->
                             <button class="edit-button text-to-hide">Edit</button>
                             <!-- delete song -->
-                            <form method="POST" class="delete-button" action="/song/delete">
+                            <form method="POST" class="delete-song text-to-hide" action="/song/delete">
                                 <input type="hidden" th:value="${song.id}" name="songId">
                                 <input type="hidden" th:value="${artist.id}" name="artistId">
                                 <input type="submit" value="Delete">
