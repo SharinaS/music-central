@@ -44,6 +44,7 @@ public class ArtistController {
         if (p != null) {
             m.addAttribute("username", p.getName());
         }
+        //TODO: Consider making a timestamp for artists, to organize them from new to old, etc.
         ApplicationUser user = applicationUserRepository.findByUsername(p.getName());
         // create a new artist and associate artist with current user
         Artist artist = new Artist(artistName, artistImageURL, user);
@@ -70,5 +71,20 @@ public class ArtistController {
         return new RedirectView("/artists");
     }
 
-    //TODO: Consider making a timestamp for artists, to organize them from new to old, etc.
+
+    // With button click of 'Edit,' a form apears for user to edit and save the updated artist data
+    @PostMapping("/artist/edit")
+    public RedirectView editArtistDetails (Long artistId, String newArtistName, String newImgArtistURL) {
+
+        // set old artist details to the new artist details
+        Artist artistBeingEdited = artistRepository.getOne(artistId);
+        artistBeingEdited.setArtistName(newArtistName);
+        artistBeingEdited.setArtistImageURL(newImgArtistURL);
+
+        // save into repository
+        artistRepository.save(artistBeingEdited);
+
+        // stay at view of artists
+        return new RedirectView("/artists");
+    }
 }

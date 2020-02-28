@@ -8,23 +8,59 @@
 <body>
     <div th:replace="fragments/nav :: nav"></div>
     <div class="container">
-        <!-- Display Artists -->
         <div class="row">
+
+            <!-- Display Artists -->
             <div class="col-8">
                 <h2 class="page-title">Favorite Artists</h2>
                 <div class="row">
                     <div class="each-artist" th:each="artist : ${artistsList}">
-                        <h3 th:text="${artist.artistName}"></h3>
-                        <a th:href="${'/artists/' + artist.id}"><img th:src="${artist.artistImageURL}" class="image"></a>
-                        <p class="link"><a th:href="${'/artists/' + artist.id}">Songs</a></p>
-                        <!-- delete the artist (and associated songs) -->
-                        <form method="POST" class="delete-artist" action="/artist/delete">
+                        <!-- show artist and update artist-->
+                        <form method="POST" action="/artist/edit">
+
+                            <!-- artist name to show or update -->
+                            <h3 class="text-to-hide" th:text="${artist.artistName}"></h3>
+                            <div class="form-group">
+                                <label class="form-to-show" hidden for="change-artist-name">Update Name</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newArtistName" th:value="${artist.artistName}"
+                                       id="change-artist-name">
+                            </div>
+
+                            <!-- artist image -->
+                            <a class="text-to-hide" th:href="${'/artists/' + artist.id}">
+                                <img th:src="${artist.artistImageURL}" class="image"></a>
+                            <div class="form-group">
+                                <label class="form-to-show" hidden for="change-picture">New Link to Image</label>
+                                <input type="text"
+                                       hidden
+                                       class="form-to-show form-control"
+                                       name="newImgArtistURL" th:value="${artist.artistImageURL}"
+                                       id="change-picture">
+                            </div>
+                            <!-- info to send over to controller via model -->
                             <input type="hidden" th:value="${artist.id}" name="artistId">
-                            <input type="submit" value="Delete Artist">
+                            <!-- save changes button -->
+                            <input class="form-to-show" type="submit" hidden value="Save Changes">
                         </form>
+                        <p class="link text-to-hide"><a th:href="${'/artists/' + artist.id}">Songs</a></p>
+
+                        <!-- edit and delete buttons -->
+                        <div class="row justify-content-md-center">
+                            <!-- edit artist -->
+                            <button class="edit-button text-to-hide">Edit</button>
+                            <!-- delete the artist (and associated songs) -->
+                            <form method="POST" class="delete-artist text-to-hide" action="/artist/delete">
+                                <input type="hidden" th:value="${artist.id}" name="artistId">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- Add Artist -->
             <div class="col">
                 <h2 class="page-title">Add an Artist</h2>
