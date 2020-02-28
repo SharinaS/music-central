@@ -51,7 +51,7 @@ public class SongController {
 
     // On button click, of 'Edit', form appears for user to edit and save new song data.
     @PostMapping("/song/edit")
-    public RedirectView editSongDetails(Long songId, Long artistId, String newSongTitle,
+    public RedirectView editSongDetails (Long songId, Long artistId, String newSongTitle,
                                         String newLinkToSong,
                                         String newImgSongURL,
                                         String newSongGenre) {
