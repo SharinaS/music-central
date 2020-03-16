@@ -7,13 +7,57 @@
 </head>
 <body>
     <div th:replace="fragments/nav :: nav"></div>
+    <!-- Inspiration from Henry Schmeding's Bootstrap design - https://codepen.io/htschmed/pen/RMEEzM -->
     <!-- if person logged in -->
-    <div class="container" th:if="${username}">
-        <!-- something goes here, such as tips and tricks to utilize the app -->
-
-    </div>
+    <header class="masthead text-black text-center" th:if="${username}">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Collect Your Favorites</h1>
+                    <h2 class="lead mb-0">create a library of your favorite musicians and pieces of music</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- icons -->
+    <section class="features-icons bg-light text-center" th:if="${username}">
+        <div class="container">
+            <div class="row">
+                <!-- first icon -->
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <a class="awesome-icon far fa-user-circle fa-3x m-auto" href="#"></a>
+                        </div>
+                        <h3>Learn How to Add Musicians</h3>
+                        <p class="lead mb-0">So easy! Read a few tips on adding images...</p>
+                    </div>
+                </div>
+                <!-- second icon -->
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <a class="awesome-icon fas fa-home fa-3x m-auto" href="/artists"></a>
+                        </div>
+                        <h3>Music Library</h3>
+                        <p class="lead mb-0">Visit your library of musicians and songs</p>
+                    </div>
+                </div>
+                <!-- third icon -->
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <a class="awesome-icon fas fa-music fa-3x m-auto" href="#"></a>
+                        </div>
+                        <h3>Learn How to Add Music</h3>
+                        <p class="lead mb-0">Read up on some hints to add songs and images</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- if person not logged in or new to the app -->
-    <!-- Inspiration for bootstrap from Pen by Henry Schmeding on CodePen - https://codepen.io/htschmed/pen/RMEEzM -->
     <header class="masthead text-black text-center" th:unless="${username}">
         <div class="overlay"></div>
         <div class="container">
