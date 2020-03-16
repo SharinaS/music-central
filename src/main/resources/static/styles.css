@@ -55,9 +55,10 @@ header.masthead {
 }
 
 .link-button:hover, .link-button:active {
-    background-color: blue;
-    color: white;
     text-decoration: none;
+    background-color: #f2f6fa;
+    color: black;
+
 }
 
 .features {
@@ -66,4 +67,25 @@ header.masthead {
 
 .features .features-item {
     max-width: 18rem;
+}
+
+.features-icons {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.awesome-icon, .awesome-icon:visited {
+  text-decoration: none;
+}
+
+.awesome-icon:hover, .awesome-icon:active {
+  text-decoration: none;
 }
