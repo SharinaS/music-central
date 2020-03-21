@@ -142,6 +142,8 @@ My notes on how I dealt with adding a load balancer after adding Route 53 can be
 My notes on setting up a load balancer for this app can be found in my repo [Cloud Engineering Fundamentals](https://github.com/SharinaS/Cloud-Engineering-Fundamentals/blob/master/LOADBALANCER.md).
 * Because I had originally set up Route 53's domain name to point to the Elastic Beanstalk environment, I had adjust the settings to point instead to the newly set up load balancer. 
 
+![screenshot of adding a load balancer](/assets/load-balancer.png)
+
 ### Satisfaction
 * It's very satisfying to interact with the cloud, and get the cloud and an app interacting with each other. 
 * The process of connecting to the cloud makes a lowly little HTML page something greater than it actually is.
