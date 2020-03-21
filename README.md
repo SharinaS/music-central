@@ -42,6 +42,7 @@ This is currently version 2.4; a version that uses several AWS services for depl
   * CloudFront - a web distribution is created for the static website hosted in the S3 bucket.
   * Elastic Beanstalk (with a PostgreSQL database) that hosts the Java application
   * Amazon Route 53 - hosts domain name and routes traffic to the elastic beanstalk environment
+  * Load Balancer
 
 ## Dependencies
 (descriptions are from the Spring Initializer, at `start.spring.io`)
@@ -82,7 +83,7 @@ PostgreSQL, a free and open-source relational database management system, is use
 * Go to localhost:8080 to see and use the app
 
 # Lessons Learned in this App
-### SpringMVC
+## SpringMVC
 * It is way too easy to overlook adding in a very necessary annotation, such as @Controller
 * Scroll down to read every error message; the one near the bottom might be the very one you're looking for.
 * Forms are the devil - particularly when you think it's a good idea to copy paste part of the form, and you forget to update the `name=`.
@@ -133,7 +134,15 @@ PostgreSQL, a free and open-source relational database management system, is use
 
 ### Amazon Route 53
 * To route DNS traffic to the elastic beanstalk environment
-* Info about routing to the elastic beanstalk environment [here on AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html)
+* Info about routing to the elastic beanstalk environment [here on AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html).
+
+My notes on how I dealt with adding a load balancer after adding Route 53 can be found in my [Cloud Engineering Fundamentals repo](https://github.com/SharinaS/Cloud-Engineering-Fundamentals/blob/master/LOADBALANCER.md).
+
+### Load Balancer
+My notes on setting up a load balancer for this app can be found in my repo [Cloud Engineering Fundamentals](https://github.com/SharinaS/Cloud-Engineering-Fundamentals/blob/master/LOADBALANCER.md).
+* Because I had originally set up Route 53's domain name to point to the Elastic Beanstalk environment, I had adjust the settings to point instead to the newly set up load balancer. 
+
+![screenshot of adding a load balancer](/assets/load-balancer.png)
 
 ### Satisfaction
 * It's very satisfying to interact with the cloud, and get the cloud and an app interacting with each other. 
@@ -145,7 +154,6 @@ PostgreSQL, a free and open-source relational database management system, is use
 * Display a notification to user when other users add an artist. Consider WebSockets or AWS 
   * Using WebSockets, make notifications system show updates in real time, not just when the page refreshes.
 * AWS Services
-  * Set up a load balancer
   * Allow user to get image from their computer, and upload it to S3, then grab it from S3 to display as their profile image
   * Cloud watch events processed by a lambda function
   * Look into continuous deployment options
