@@ -28,7 +28,7 @@
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex">
-                            <a class="awesome-icon far fa-user-circle fa-3x m-auto" href="#"></a>
+                            <a class="awesome-icon far fa-user-circle fa-3x m-auto" href="#add-musician"></a>
                         </div>
                         <h3>Learn How to Add Musicians</h3>
                         <p class="lead mb-0">So easy! Read a few tips on adding images...</p>
@@ -48,15 +48,63 @@
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex">
-                            <a class="awesome-icon fas fa-music fa-3x m-auto" href="#"></a>
+                            <a class="awesome-icon fas fa-music fa-3x m-auto" href="#add-song"></a>
                         </div>
                         <h3>Learn How to Add Music</h3>
-                        <p class="lead mb-0">Read up on some hints to add songs and images</p>
+                        <p class="lead mb-0">Read up on some hints to add songs and images...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Alternating Images -->
+    <section class="showcase" th:if="${username}">
+        <div class="container-fluid p-0">
+            <!-- images chosen should have the focal point of the picture in the left hand side of the image, so it will
+                appear consistently with different screen sizes -->
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://musiccentralstorage.s3-us-west-2.amazonaws.com/man_sitting_in_grass.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2 id="add-musician">Adding a Musician Is Easy...</h2>
+<!--                    <p class=" lead mb-0">you can add a name and/or a link to an image you'd like to use. If you don't have your own URL, you may do a Google image search. Click on the image you'd like to use, right-click over the image, and click "copy image address." Paste that image address as the iamge you'd like to be associated with the musician. Do note that images that have vertical orientation look better than those with horizontal orientation. </p>-->
+                    <ul class=" lead mb-0">
+                        <li>Easily add a name and/or a link to an image you'd like to use.</li>
+                        <li>Add the info you'd like to add; you're not required to fill in all the fields.</li>
+                        <li>If you don't have your own URL, you may do a Google image search.</li>
+                        <li>Click on the image you'd like to use, right-click over the image, and click "copy image address."</li>
+                        <li>Paste that image address as the image you'd like to be associated with the musician.</li>
+                        <li>Do note that images that have vertical orientation look better than those with horizontal orientation.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('https://musiccentralstorage.s3-us-west-2.amazonaws.com/rockband.jpg');"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2 id="add-song">Adding Songs - Hints</h2>
+                    <ul class="lead mb-0">
+                        <li>It's easy to add in the title of the song - you can name it whatever you like!</li>
+                        <li>To add a link to the YouTube song, go to YouTube.</li>
+                        <li>Search for the song, click on the song so it's playing on YouTube, and then copy the YouTube link on the top of the page.</li>
+                        <li>Go back to MusicCentral, and paste in the YouTube link.</li>
+                        <li>To add an image to your song, you can use a URL to an image you own, or you can go to Google.</li>
+                        <li>Do a search for the song, and click on "Images" on the top of the Google search page.</li>
+                        <li>Click on the image you want to use.</li>
+                        <li>Hover over the large image that displays after clicking on it, and right-click so a drop down of options appears. Scroll down to "Copy Image Address."</li>
+                        <li>Go back to MusicCentral and paste in the image URL into the form provided.</li>
+                        <li>Do note that images that have vertical orientation look better than those with horizontal orientation</li>
+                    </ul>
+                </div>
+            </div>
+<!--            <div class="row no-gutters">-->
+<!--                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://sharinastubbs.s3-us-west-2.amazonaws.com/sailing.jpg');"></div>-->
+<!--                <div class="col-lg-6 order-lg-1 my-auto showcase-text">-->
+<!--                    <h2>Sailor</h2>-->
+<!--                    <p class="lead mb-0">A calm and reliable sailor with experience in numerous yacht races in the Pacific Northwest and Pacific Ocean.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </section>
+
     <!-- if person not logged in or new to the app -->
     <header class="masthead text-black text-center" th:unless="${username}">
         <div class="overlay"></div>
