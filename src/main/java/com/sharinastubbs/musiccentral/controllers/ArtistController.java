@@ -87,4 +87,6 @@ public class ArtistController {
         // stay at view of artists
         return new RedirectView("/artists");
     }
+
+    //TODO: Add dummy image for when a user adds a musician and for when they add a song.
 }
