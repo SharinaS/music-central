@@ -118,15 +118,16 @@ PostgreSQL, a free and open-source relational database management system, is use
 ## Elastic Beanstalk
 ***AWS Service currently removed from app***
 
-![screenshot of elastic beanstalk env](assets/musiccentralenv.png)
-
 * Used to deploy the website to AWS
   * Used to deploy applications to the cloud without dealing with the infrastructure running those applications
+  
+![screenshot of elastic beanstalk env](assets/musiccentralenv.png)
+
 * Handles details of capacity provisioning, load balancing, scaling, and application health monitoring
 
 ![screenshot of elastic beanstalk environment status](assets/musiccentralenvstatus.png)
 
-* Because I used an already existing app, I had to build a jar file from the terminal, `./gradlew bootJar`, inorder to have a file to upload to AWS.
+* Because I used an already existing app, I had to build a jar file from the terminal, `./gradlew bootJar`, in order to have a file to upload to AWS.
 * Initially made an unstable environment by immediately uploading the jar file. Removed it, then simply started with a "Sample Application".
 * Because this app has a postgres database, I had to set up an AWS postgres database ... creation of this environment does not happen quickly... and setting up the environmental variables was only slightly intuitive
   * POSGRESQL_PASSWORD <password created during AWS database setup>
