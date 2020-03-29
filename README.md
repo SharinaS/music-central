@@ -146,10 +146,10 @@ PostgreSQL, a free and open-source relational database management system, is use
 ## Amazon Route 53
 
 ***AWS Service currently removed from app***
+* Purpose: To route DNS traffic to the elastic beanstalk environment
 
 ![screenshot of hosted zone](assets/route53hostedzone.png)
 
-* Purpose: To route DNS traffic to the elastic beanstalk environment
 * Info about routing to the elastic beanstalk environment [here on AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html).
 
 My notes on how I dealt with adding a load balancer after adding Route 53 can be found in my [Cloud Engineering Fundamentals repo](https://github.com/SharinaS/Cloud-Engineering-Fundamentals/blob/master/LOADBALANCER.md).
